@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>🎉 Invitación Cumpleaños Wendolly</title>
+
+        <!-- SEO / Social -->
+        <meta name="description"
+            content="Estás invitado al cumpleaños de Wendolly. ¡Acompáñanos a celebrar un día mágico!">
+        <meta property="og:title" content="🎉 Invitación Wendolly">
+        <meta property="og:description"
+            content="¡Ven a celebrar un día mágico lleno de diversión!">
+        <meta property="og:type" content="website">
+
+        <!-- Fuentes -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+            rel="stylesheet">
+
+        <style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:'Poppins',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#e0f7fa,#80deea,#26c6da);
+    color:#2c5f6f;
+}
+
+/* TARJETA */
+.card{
+    background:rgba(255,255,255,0.2);
+    backdrop-filter:blur(20px);
+    border-radius:30px;
+    padding:40px;
+    max-width:500px;
+    width:90%;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.2);
+}
+
+/* TEXTOS */
+.title{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+}
+
+.name{
+    font-family:'Great Vibes',cursive;
+    font-size:2.5rem;
+    margin:15px 0;
+}
+
+.age{
+    font-size:1.5rem;
+}
+
+.age span{
+    font-size:3rem;
+    font-weight:bold;
+}
+
+/* FRASE */
+.phrase{
+    margin:20px 0;
+    font-style:italic;
+}
+
+/* COUNTDOWN */
+.countdown{
+    display:flex;
+    justify-content:space-between;
+    margin:20px 0;
+}
+
+.box{
+    flex:1;
+}
+
+.box span{
+    display:block;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+/* DETALLES */
+.details{
+    margin:20px 0;
+    line-height:1.6;
+}
+
+/* BOTÓN */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 30px;
+    border-radius:30px;
+    background:#26c6da;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* MOBILE */
+@media(max-width:500px){
+    .countdown{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+    </head>
+
+    <body>
+
+        <div class="card">
+            <h1 class="title">¡Estás invitado!</h1>
+
+            <h2 class="name">Wendolly Angélica</h2>
+
+            <p class="age">Cumple <span>4</span> años 🎂</p>
+
+            <p
+                class="phrase">"Ven a celebrar un día mágico lleno de alegría y diversión ❄️"</p>
+
+            <!-- COUNTDOWN -->
+            <div class="countdown">
+                <div class="box"><span id="d">00</span>Días</div>
+                <div class="box"><span id="h">00</span>Horas</div>
+                <div class="box"><span id="m">00</span>Min</div>
+                <div class="box"><span id="s">00</span>Seg</div>
+            </div>
+
+            <!-- DETALLES -->
+            <div class="details">
+                📅 1 de Mayo 2026 <br>
+                🕐 4:00 PM <br>
+                📍 Chicago, IL
+            </div>
+
+            <!-- BOTÓN -->
+            <a class="btn" target="_blank"
+                href="https://wa.me/?text=Hola%20confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Wendolly%20🎉">
+                Confirmar asistencia
+            </a>
+        </div>
+
+        <script>
+// COUNTDOWN
+const target = new Date("2026-05-01T16:00:00").getTime();
+
+setInterval(()=>{
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    if(diff < 0) return;
+
+    const d = Math.floor(diff/(1000*60*60*24));
+    const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((diff%(1000*60*60))/(1000*60));
+    const s = Math.floor((diff%(1000*60))/1000);
+
+    document.getElementById("d").innerText=d;
+    document.getElementById("h").innerText=h;
+    document.getElementById("m").innerText=m;
+    document.getElementById("s").innerText=s;
+},1000);
+</script>
+
+    </body>
+</html>
